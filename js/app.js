@@ -19,10 +19,11 @@ Enemy.prototype.update = function(dt) {
     this.x = -50;
     }
 
+//Enemy-player collision :
     allEnemies.forEach(function(enemy,i){
       if( (player.y-10)==(this.y)&&(player.x > this.x-50)&&(player.x < this.x+50) )
       {  console.log("collision");
-        window.alert("GAMEOVER, yor current score is \n"+ score);
+        alert("GAMEOVER, yor current score is \n"+ score);
         document.getElementById("score").innerHTML  = "Score: 0";
         player.reset();
       }
@@ -121,7 +122,7 @@ for (i=1;i<=5;i++){
 }
 
 var player = new Player(200,450);
-// check for collision ( GAMEOVER)
+
 
 
 // This listens for key presses and sends the keys to your
