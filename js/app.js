@@ -1,6 +1,5 @@
-// Enemies our player must avoid
 var score=0;
-
+// Enemies our player must avoid
 var Enemy = function(x,y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get starte
@@ -13,9 +12,7 @@ var Enemy = function(x,y) {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter.
-    // this.x += this.speed*dt;
-    // this.y += this.speed*dt;
+  
     if (this.x < 505) {
     this.x += (this.speed * dt);
     } else{
