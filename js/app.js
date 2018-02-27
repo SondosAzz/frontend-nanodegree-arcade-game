@@ -12,14 +12,25 @@ var Enemy = function(x,y) {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-  
+
     if (this.x < 505) {
     this.x += (this.speed * dt);
     } else{
     this.x = -50;
     }
-}
 
+    allEnemies.forEach(function(enemy,i){
+      if( (player.y-10)==(this.y)&&(player.x > this.x-50)&&(player.x < this.x+50) )
+      {  console.log("collision");
+        window.alert("GAMEOVER, yor current score is \n"+ score);
+        document.getElementById("score").innerHTML  = "Score: 0";
+        player.reset();
+      }
+    });
+
+
+
+}
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -54,11 +65,15 @@ Player.prototype.update = function(dt) {
   }
 
 
+
+
+
 }
 
-Player.prototype.reset = function(dt) {
-this.x = 200;
-this.y = 450;
+Player.prototype.reset = function() {
+
+  this.x = 200;
+  this.y = 450;
 
 }
 
@@ -86,10 +101,8 @@ Player.prototype.handleInput = function(key) {
        break;
   }
 
-
-
 }
-// getRandomInt(min, max) function is retrieved from a Stackoverflow question:
+// getRandomInt(min, max) function retrieved from a Stackoverflow question:
 //From the Mozilla Developer Network documentation:
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -108,6 +121,8 @@ for (i=1;i<=5;i++){
 }
 
 var player = new Player(200,450);
+// check for collision ( GAMEOVER)
+
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.

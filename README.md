@@ -11,5 +11,3 @@ frontend-nanodegree-arcade-game
 ### How to Play:
 1. Use the Arrow keys *(↓,→,←,↑)* to control the player.
 2. to keep winning scores, you have to get to the other side without touching any of the bugs.
-
-<center>Enjoy!</center>
